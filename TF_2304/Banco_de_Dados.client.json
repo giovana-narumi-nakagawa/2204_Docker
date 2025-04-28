@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "680ff70c22daeefaadf63971"
+  },
+  "full_name": "Empresa Soluções Ltda",
+  "cpf": null,
+  "email": "contato@solucoes.com.br",
+  "phone": "21998765432",
+  "address": "Avenida Principal, 456",
+  "city": "Rio de Janeiro",
+  "state": "RJ",
+  "zip_code": "20010020",
+  "created_by": "user_id_do_manager_2",
+  "enterprise": "Soluções Ltda",
+  "cnpj_enterprise": "12345678000190",
+  "description": "Cliente corporativo"
+}]
