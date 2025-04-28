@@ -3,4 +3,5 @@ Este projeto é uma criação de sistema web simples para coletar a satisfação
 
 1. Clone o repositório:
    git clone https://github.com/giovana-narumi-nakagawa/Aula2204.git
+2. Selecionar a pasta:
    cd Aula2204
