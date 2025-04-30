@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpass
+      POSTGRES_DB: observabilidade
+      POSTGRES_LOGGING_COLLECT: 'on'
+      POSTGRES_LOG_DIRECTORY: '/var/log/postgresql'
+      POSTGRES_LOG_FILENAME: 'postgresql.log'
+      POSTGRES_LOG_STATEMENT: 'all'
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+      - ./postgres_logs:/var/log/postgresql
+    ports:
+      - "5432:5432"
+
+  promtail:
+    image: grafana/promtail:2.0.0
+    container_name: promtail
+    volumes:
+      - ./promtail/config:/etc/promtail
+      - ./postgres_logs:/var/log/postgresql
+    command:
+      - -config.file=/etc/promtail/config/promtail.yaml
+    restart: always
+
+  loki:
+    image: grafana/loki:2.0.0
+    container_name: loki
+    ports:
+      - "3100:3100"
+    restart: always
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - loki
+    restart: always
