@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "6813d994d7e5593aeaa621ae"
+  },
+  "cliente_id": "6813d82dd7e5593aeaa62197",
+  "entregador_id": "6813d871d7e5593aeaa6219e",
+  "data_pedido": "2025-05-01T18:30:00Z",
+  "status": "entregue",
+  "produtos": [
+    {
+      "produto_id": "6813d8b4d7e5593aeaa621a1",
+      "nome": "Pizza Queijo",
+      "quantidade": 2,
+      "preco_unitario": 35
+    }
+  ],
+  "valor_total": 70
+},
+{
+  "_id": "64b3a",
+  "cliente_id": "6813d994d7e5593aeaa621ae",
+  "entregador_id": "6813d871d7e5593aeaa6219e",
+  "data": "2024-04-01T00:00:00Z",
+  "status": "entregue",
+  "local": {
+    "type": "Point",
+    "coordinates": [
+      -46.6333,
+      -23.5505
+    ]
+  },
+  "produtos": [
+    {
+      "nome": "Pizza Calabresa",
+      "preco": 35
+    },
+    {
+      "nome": "Coca-Cola 2L",
+      "preco": 10
+    }
+  ]
+}]

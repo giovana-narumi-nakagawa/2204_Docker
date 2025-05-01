@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "6813d8b4d7e5593aeaa621a1"
+  },
+  "nome": "Pizza Calabresa",
+  "preco": 35,
+  "descricao": "Pizza com calabresa e cebola",
+  "restaurante": "Pizzaria do Zé"
+}]

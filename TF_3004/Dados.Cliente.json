@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "6813d82dd7e5593aeaa62197"
+  },
+  "nome": "Nicolas",
+  "email": "Nicolas@email.com",
+  "telefone": "11999999999",
+  "endereco": {
+    "rua": "Rua A",
+    "numero": "123",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "01234-567"
+  }
+}]

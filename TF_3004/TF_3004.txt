@@ -1,0 +1,52 @@
+1) Decisão de Modelagem:
+- Cliente: Referenciado nos pedidos,pois um cliente pode ter vários pedidos e suas informações não mudam com frequência.
+
+- Entregador: Referenciado nos pedidos, pois cada entregador entrega vários pedidos e seus dados são relativamente estáticos.
+
+- Pedido: Embutido, já que cada pedido tem um conjunto de dados únicos e não precisam ser referenciados em outra coleção.
+
+- Produto: Referenciado, pois um produto pode participar em diversos pedidos e seus dados não mudam com frequência.
+
+2)
+a)db.pedidos.aggregate([
+  {
+    $lookup: {
+      from: "clientes",
+      localField: "cliente_id",
+      foreignField: "_id",
+      as: "cliente"
+    }
+  },
+  { $unwind: "$cliente" },
+  { $match: { "cliente.nome": "Carlos Mendes", status: "entregue" } }
+])
+
+
+
+b)db.pedidos.aggregate([
+  { $unwind: "$produtos" },
+  {
+    $group: {
+      _id: "$produtos.nome",
+      total_vendas: { $sum: 1 }
+    }
+  },
+  { $project: { _id: 0, produto: "$_id", total_vendas: 1 } }
+])
+
+c)db.pedidos.find({
+  local: {
+    $near: {
+      $geometry: { type: "Point", coordinates: [-46.634, -23.551] },
+      $maxDistance: 1000
+    }
+  }
+})
+
+
+d)db.pedidos.find({ "produtos.nome": "Pizza Calabresa" })
+
+e)db.pedidos.find(
+  {},
+  { "cliente_id": 1, "produtos.nome": 1 }
+)
